@@ -54,10 +54,12 @@ public class Main {
     }
 
     public static String listToJson(List<Employee> list) {
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.setPrettyPrinting().create();
         Type listType = new TypeToken<>() {
         }.getType();
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
+
+
         String listGson = gson.toJson(list, listType);
 
         return listGson;
